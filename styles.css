@@ -1,4 +1,3 @@
-/* Basic layout to center everything */
 body {
     font-family: sans-serif;
     display: flex;
@@ -7,35 +6,29 @@ body {
     margin-top: 50px;
 }
 
-/* Aligning the toggles in a column */
 .toggle-container {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between rows */
+    gap: 15px; 
 }
 
-/* All other CSS stays exactly the same, just update this one block: */
-
-/* Aligning the toggle and text side-by-side */
-#g1, #g2, #g3 {
+#g1, #g2, #g3, .g1, .g2, .g3 {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-/* Trick: Making the default checkbox look like a pill/switch */
 .toggle {
-    appearance: none; /* Removes the default square checkbox look */
+    appearance: none; 
     width: 40px;
     height: 20px;
-    background-color: #ccc; /* Gray when OFF */
+    background-color: #ccc; 
     border-radius: 20px;
     position: relative;
     cursor: pointer;
     transition: 0.3s;
 }
 
-/* The small white circle inside the toggle */
 .toggle::before {
     content: '';
     position: absolute;
@@ -45,21 +38,21 @@ body {
     border-radius: 50%;
     top: 2px;
     left: 2px;
-    transition: 0.3s; /* Smooth sliding animation */
+    transition: 0.3s;
+    /* THIS IS THE FIX: Prevents the circle from blocking the robot's click */
+    pointer-events: none; 
 }
 
-/* Changing color when the checkbox is clicked (ON) */
 .toggle:checked {
-    background-color: #28a745; /* Green when ON */
+    background-color: #8a2be2; /* Purple color matching the image */
 }
 
-/* Sliding the white circle to the right when ON */
 .toggle:checked::before {
     transform: translateX(20px); 
 }
 
-/* Styling the span text */
 span {
     font-size: 1.2rem;
     width: 60px;
+    cursor: pointer; /* Makes it clear the text is clickable */
 }
