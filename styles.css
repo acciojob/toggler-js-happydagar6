@@ -14,8 +14,10 @@ body {
     gap: 15px; /* Space between rows */
 }
 
+/* All other CSS stays exactly the same, just update this one block: */
+
 /* Aligning the toggle and text side-by-side */
-.g1, .g2, .g3 {
+#g1, #g2, #g3 {
     display: flex;
     align-items: center;
     gap: 10px;
