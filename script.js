@@ -6,21 +6,21 @@ const toggles = document.querySelectorAll(".toggle");
 
 toggles.forEach(toggle => {
     toggle.addEventListener("change", (e) => {
-        // Only run the unchecking logic if the current action is turning a toggle ON
-        // and if ALL THREE are currently checked
+        
+        // Check if all three checkboxes are currently active
         if (good.checked && cheap.checked && fast.checked) {
             
-            // If the user just turned ON 'good', we force 'fast' to turn OFF
+            // If the user just clicked 'good', uncheck 'fast'
             if (e.target === good) {
                 fast.checked = false;
             }
             
-            // If the user just turned ON 'cheap', we force 'good' to turn OFF
+            // If the user just clicked 'cheap', uncheck 'good'
             if (e.target === cheap) {
                 good.checked = false;
             }
 
-            // If the user just turned ON 'fast', we force 'cheap' to turn OFF
+            // If the user just clicked 'fast', uncheck 'cheap'
             if (e.target === fast) {
                 cheap.checked = false;
             }
