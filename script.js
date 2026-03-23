@@ -1,24 +1,24 @@
-//your JS code here. If required.
-let checkOrder = [];
+const good = document.getElementById("good");
+const cheap = document.getElementById("cheap");
+const fast = document.getElementById("fast");
 
 const toggles = document.querySelectorAll(".toggle");
 
-toggles.forEach((toggle) => {
-	toggle.addEventListener("change", () => {
-		if(toggle.checked) {
-			if(checkOrder.length < 2) {
-				checkOrder.push(toggle.id);
-			} else {
-				const firstChecked = checkOrder[0];
-				const firstCheckBox = document.getElementById(firstChecked);
+toggles.forEach(toggle => {
+	toggle.addEventListener("change", (event) => {
 
-				firstCheckBox.checked = false;
-				checkOrder.shift();
+		if(good.checked && cheap.checked && fast.checked) {
 
-				checkOrder.push(toggle.id);
+			if(event.target === good) {
+				fast.checked = false;
 			}
-		} else {
-			checkOrder = checkOrder.filter(id => id !== toggle.id);
+			if(event.target === cheap) {
+				good.checked = false;
+			}
+
+			if(event.target === fast) {
+				cheap.checked = false;
+			}
 		}
-	})
-})
+	});
+});
